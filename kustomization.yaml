@@ -1,0 +1,24 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+secretGenerator:
+- name: mysql-root-pass
+  literals:
+  - password=redacted
+- name: wp-db-host
+  literals:
+    - host=redacted
+- name: wp-db-user
+  literals:
+    - password=redacted
+- name: mysql-db-pass
+  literals:
+    - password=redacted
+- name: wp-db-name
+  literals:
+    - password=redacted
+resources:
+  - nfs.yaml
+  - vpa.yaml
+  - wordpress-deployment.yaml
+  - hpa.yaml
+  - ingress.yaml
