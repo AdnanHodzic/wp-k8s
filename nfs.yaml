@@ -25,7 +25,6 @@ spec:
         securityContext:
           privileged: true
         resources:
-        # ToDo: update properly
           limits:
             cpu: 250m
             memory: "300Mi"
