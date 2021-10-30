@@ -23,7 +23,7 @@ While wp-k8s project is compatible with any Kubernetes/cloud provider, if you're
 * A sub/domain name with access to edit its DNS records
 * Contents of this repo (`git clone https://github.com/AdnanHodzic/wp-k8s.git`)
 
-### Step 1: MySQL database server
+### Step 1: Create MySQL Cluster
 
 If you don't have an existing MySQL database server, you can create MySQL cluster using [MySQL operator](https://github.com/bitpoke/mysql-operator).
 

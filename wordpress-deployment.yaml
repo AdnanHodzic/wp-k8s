@@ -125,6 +125,7 @@ spec:
       volumes:
       - name: wordpress-persistent-storage
         persistentVolumeClaim:
+        # only enable on GKE
           claimName: nfs
       - name: wordpress-custom
         configMap:
