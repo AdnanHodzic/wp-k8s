@@ -1,0 +1,26 @@
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs
+spec:
+  storageClassName: "" 
+  capacity:
+    storage: 20Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: redacted # ip addres of nfs server
+    path: "redacted" # path to directory
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nfs
+spec:
+  storageClassName: ""
+  accessModes:
+    - ReadWriteMany 
+  resources:
+    requests:
+      storage: 20Gi
