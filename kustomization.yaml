@@ -17,10 +17,23 @@ secretGenerator:
   literals:
     - password=redacted
 resources:
-  - nfs.yaml
-  # Enable if you to deploy MySQL cluster using MySQL operator
+  # Enable/uncomment if using RPI or any other setup then public cloud
+  - metallb-ingress-service.yaml
+  # Enable/uncomment if using nfs-server-k8s on public or private cloud
+  #- nfs.yaml
+  # Enable/uncomment if using RPI or any other setup then public cloud
+  - nfs-synology.yaml
+  # Enable/uncomment if you want to deploy MySQL cluster using MySQL operator on private or public cloud
   #- mysql-cluster.yaml
+  # Leave enabled/uncommented for both private and public cloud
   - wordpress-deployment.yaml
+  # Enable/uncomment on private cloud if "Step 7.2" of https://foolcontrol.org/?p=4004 has been completed
   - vpa.yaml
   - hpa.yaml
-  - ingress.yaml
+  # Enable/uncomment if using public cloud or if you using inlets-operator on private cloud/RPI
+  #- ingress.yaml
+
+# References:
+# wp-k8s: WordPress on privately hosted Kubernetes cluster (Raspberry Pi 4 + Synology): https://foolcontrol.org/?p=4004
+# wp-k8s: WordPress on Kubernetes project (GKE, cloud SQL, NFS, cluster autoscaling, HPA, VPA, Ingress, Let’s Encrypt): https://foolcontrol.org/?p=3754
+# nfs-server-k8s: NFS server container image for Kubernetes: https://github.com/AdnanHodzic/nfs-server-k8s
