@@ -43,7 +43,10 @@ spec:
   selector:
     app: wordpress
     tier: frontend
-  #type: LoadBalancer
+  type: LoadBalancer
+  # only specify on RPI setup
+  #loadBalancerIP: redacted
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -53,7 +56,7 @@ metadata:
     app: wordpress
     role: wp
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: wordpress
@@ -67,7 +70,7 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: wordpress:5.8-php8.0-apache
+      - image: wordpress:5.8.2-php8.0-apache
         name: wordpress
         env:
         - name: WORDPRESS_DB_HOST
@@ -125,7 +128,6 @@ spec:
       volumes:
       - name: wordpress-persistent-storage
         persistentVolumeClaim:
-        # only enable on GKE
           claimName: nfs
       - name: wordpress-custom
         configMap:
