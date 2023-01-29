@@ -1,6 +1,6 @@
 # wp-k8s: WordPress on Kubernetes project
 
-This repository consists of various Kubernetes deployments (see below for full info) which aim to seamlessly deploy production ready WordPress on both public and private cloud with autoscaling capabilities with minimum to no ops tasks.
+This repository consists of various Kubernetes deployments (see below for full info) which aim to seamlessly deploy production ready WordPress on both public and private cloud with autoscaling capabilities with minimum to no ops tasks. If you're interested in same type of setup without K8s, please refer to my [containerized-wordpress-project](https://github.com/AdnanHodzic/containerized-wordpress-project).
 
 While wp-k8s project is compatible with any Kubernetes/cloud provider:
 
