@@ -8,7 +8,7 @@ spec:
     kind: Deployment
     name: wordpress
   minReplicas: 1
-  maxReplicas: 2
+  maxReplicas: 3
   metrics:
   - type: Resource
     resource:
@@ -21,7 +21,7 @@ spec:
       name: memory
       target:
         type: AverageValue
-        averageValue: 300Mi
+        averageValue: 500Mi
 ---
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
@@ -46,4 +46,4 @@ spec:
       name: memory
       target:
         type: AverageValue
-        averageValue: 150Mi
+        averageValue: 200Mi
