@@ -3,34 +3,40 @@ kind: Kustomization
 secretGenerator:
 - name: mysql-root-pass
   literals:
-  - password=redacted
+  - password=REDACTED
 - name: wp-db-host
   literals:
-    - host=redacted
+    - host=REDACTED
 - name: wp-db-user
   literals:
-    - password=redacted
+    - password=REDACTED
 - name: mysql-db-pass
-  literals:
-    - password=redacted
+  literals: 
+    - password=REDACTED
 - name: wp-db-name
   literals:
-    - password=redacted
-resources:
+    - password=REDACTED
+resources: 
   # Enable/uncomment if using RPI or any other setup then public cloud
-  - metallb-ingress-service.yaml
+  #- metallb-ingress-service.yaml
+  # Reference: https://microk8s.io/docs/addon-metallb
+  # Recommended use: ToDO: insert blog post/github repo for tf-bootsrap
+  - metallb.yaml
+  
   # Enable/uncomment if using nfs-server-k8s on public or private cloud
   #- nfs.yaml
   # Enable/uncomment if using RPI or any other setup then public cloud
   - nfs-synology.yaml
-  # Enable/uncomment if you want to deploy MySQL cluster using MySQL operator on private or public cloud
+  # Enable/uncomment if you want to deploy MySQL cluster using MySQL operator
   #- mysql-cluster.yaml
   # Leave enabled/uncommented for both private and public cloud
   - wordpress-deployment.yaml
-  # Enable/uncomment on private cloud if "Step 7.2" of https://foolcontrol.org/?p=4004 has been completed
-  - vpa.yaml
+  # Enable/uncomment if you using public cloud (temp disabled for private)
+  # - vpa.yaml
+  # Warning: autoscaling/v2beta2 HorizontalPodAutoscaler is deprecated in v1.23+, unavailable in v1.26+; use autoscaling/v2 HorizontalPodAutoscaler
   - hpa.yaml
-  # Enable/uncomment if using public cloud or if you using inlets-operator on private cloud/RPI
+  # Enable/uncomment if using public cloud or if you using inlets-operator on
+  # private cloud/RPI
   #- ingress.yaml
 
 # References:

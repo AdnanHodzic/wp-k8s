@@ -1,0 +1,54 @@
+# Further reference: https://microk8s.io/docs/addon-metallb
+#
+# metallb address pool
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: custom-addresspool
+  namespace: metallb-system
+spec: 
+  addresses:
+  - 192.168.1.1-192.168.1.100
+---
+# metallb-service for each LoadBlanacer service
+apiVersion: v1
+kind: Service
+metadata:
+  name: metallb-service
+  annotations:
+    metallb.universe.tf/address-pool: custom-addresspool
+spec:
+  selector:
+    name: nginx
+  type: LoadBalancer
+  # loadBalancerIP is optional. MetalLB will automatically allocate an IP 
+  # from its pool if not specified. You can also specify one manually.
+  # loadBalancerIP: x.y.z.a
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+# metallb ingress service
+apiVersion: v1
+kind: Service
+metadata:
+  name: ingress
+  namespace: ingress
+spec:
+  selector:
+    name: nginx-ingress-microk8s
+  type: LoadBalancer
+  # loadBalancerIP is optional. MetalLB will automatically allocate an IP 
+  # from its pool if not specified. You can also specify one manually.
+  # loadBalancerIP: x.y.z.a
+  loadBalancerIP: 192.168.1.110
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 80
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 443
