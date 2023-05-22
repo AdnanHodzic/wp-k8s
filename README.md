@@ -6,11 +6,13 @@ While wp-k8s project is compatible with any Kubernetes/cloud provider:
 
 For its private cloud implementation refer to: 
 
-* **[wp-k8s: WordPress on privately hosted Kubernetes cluster (Raspberry Pi 4 + Synology)](https://foolcontrol.org/?p=4004)** blog post.
+* [wp-k8s: WordPress on privately hosted Kubernetes cluster (Raspberry Pi 4 + Synology)](https://foolcontrol.org/?p=4004) or
+* [rpi-microk8s-bootstrap: Automate RPI device conversion into Kubernetes cluster nodes with Terraform](https://foolcontrol.org/?p=4555) blog post
+* [rpi-microk8s-bootstrap](https://github.com/AdnanHodzic/rpi-microk8s-bootstrap) Github project
 
 For its public cloud implementation on GKE refer to:
 
-* **[wp-k8s: WordPress on Kubernetes (GKE, cloud SQL, NFS, cluster autoscaling, HPA, VPA, Ingress, Let's Encrypt)](http://foolcontrol.org/?p=3754)** blog post.
+* [wp-k8s: WordPress on Kubernetes (GKE, cloud SQL, NFS, cluster autoscaling, HPA, VPA, Ingress, Let's Encrypt)](http://foolcontrol.org/?p=3754) blog post
 
 ## Brief overview:
 
@@ -55,8 +57,9 @@ After couple of minutes your MySQL cluster will be up and running. For more info
 
 ## Discussion:
 
-* Blogpost: [wp-k8s: WordPress on privately hosted Kubernetes cluster (Raspberry Pi 4 + Synology)](https://foolcontrol.org/?p=4004)
-* Blogpost: [wp-k8s - WordPress on Kubernetes (GKE, cloud SQL, NFS, cluster autoscaling, HPA, VPA, Ingress, Let's Encrypt)](http://foolcontrol.org/?p=3754)
+* [wp-k8s: WordPress on privately hosted Kubernetes cluster (Raspberry Pi 4 + Synology)](https://foolcontrol.org/?p=4004) blog post
+* [wp-k8s - WordPress on Kubernetes (GKE, cloud SQL, NFS, cluster autoscaling, HPA, VPA, Ingress, Let's Encrypt)](http://foolcontrol.org/?p=3754) blog post
+* [rpi-microk8s-bootstrap: Automate RPI device conversion into Kubernetes cluster nodes with Terraform](https://foolcontrol.org/?p=4555) blog post
 
 
 ## Donate
