@@ -8,6 +8,8 @@ metadata:
   namespace: metallb-system
 spec: 
   addresses:
+  # Reference: "Step 4.7: Enable and configure MetalLB" https://foolcontrol.org/?p=4004
+  # Must match initial node pool configured as part of: "Step 3.10: Comment existing contents and add static configuration"
   - 192.168.1.1-192.168.1.100
 ---
 # metallb-service for each LoadBlanacer service
