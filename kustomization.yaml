@@ -17,7 +17,12 @@ secretGenerator:
   literals:
     - password=REDACTED
 resources: 
-  # Enable/uncomment if using RPI or any other setup other then public cloud
+  # Enable/uncomment if using RPI or any other setup then public cloud
+  #
+  # Recommended & suggested tooling for RPI K8s cluster - rpi-microk8s-bootstrap:
+  # https://github.com/AdnanHodzic/rpi-microk8s-bootstrap
+  #
+  #- metallb-ingress-service.yaml
   # Reference: https://microk8s.io/docs/addon-metallb
   - metallb.yaml
   
@@ -42,9 +47,13 @@ resources:
 
   # Enable/uncomment if using public cloud or if you using inlets-operator on private cloud/RPI
   #- ingress.yaml
+  
+  # Enable/uncomment only if you want to use GCP Buckets (GCS) instead of NFS to store media using i.e: 
+  # WP-Statless plugin: https://wordpress.org/plugins/wp-stateless/
+  - stateless-sa-sec.yaml
 
 # References:
 # wp-k8s: WordPress on privately hosted Kubernetes cluster (Raspberry Pi 4 + Synology): https://foolcontrol.org/?p=4004
 # wp-k8s: WordPress on Kubernetes project (GKE, cloud SQL, NFS, cluster autoscaling, HPA, VPA, Ingress, Let’s Encrypt): https://foolcontrol.org/?p=3754
-# rpi-microk8s-bootstrap: Automate RPI device conversion into Kubernetes cluster nodes with Terraform: https://github.com/AdnanHodzic/rpi-microk8s-bootstrap
 # nfs-server-k8s: NFS server container image for Kubernetes: https://github.com/AdnanHodzic/nfs-server-k8s
+# rpi-microk8s-bootstrap: Automate RPI device conversion into Kubernetes cluster nodes with Terraform: https://github.com/AdnanHodzic/rpi-microk8s-bootstrap

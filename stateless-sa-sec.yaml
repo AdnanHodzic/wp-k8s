@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: wp-stateless-media-secret
+type: Opaque
+data:
+  WP_STATELESS_MEDIA_JSON_KEY: |
+    add json base64 output here, i.e: `base fooctrl-wp-stateless.json`

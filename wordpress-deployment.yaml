@@ -25,6 +25,9 @@ data:
     max_input_time 300
   WORDPRESS_CONFIG_EXTRA: |
     define('WP_MEMORY_LIMIT', '64M');
+    define('WP_STATELESS_MEDIA_KEY_FILE_PATH', '/var/www/html/wp-content/sa/key.json');
+    define('WP_STATELESS_MEDIA_CACHE_CONTROL', 'public, max-age=36000, must-revalidate');
+    define('WP_STATELESS_MEDIA_CACHE_BUSTING', 'true');
     @ini_set( 'upload_max_size', '64M' );
     @ini_set( 'post_max_size', '64M');
     @ini_set( 'max_execution_time', '300' );
@@ -56,7 +59,7 @@ metadata:
     app: wordpress
     role: wp
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: wordpress
@@ -71,9 +74,12 @@ spec:
       labels:
         app: wordpress
         tier: frontend
+    # Should only be enabled in case stateless-sa-sec.yaml is used
     spec:
+      securityContext:
+        fsGroup: 33 
       containers:
-      - image: wordpress:6.2.1-php8.1-apache
+      - image: wordpress:6.5.4-php8.1-apache
         name: wordpress
         env:
         - name: WORDPRESS_DB_HOST
@@ -128,6 +134,10 @@ spec:
         - name: wordpress-custom
           mountPath: /var/www/html/.htaccess
           subPath: .htaccess
+        # Should only be enabled in case stateless-sa-sec.yaml is used
+        - name: sa-volume
+          mountPath:  /var/www/html/wp-content/sa
+          readOnly: true
       volumes:
       - name: wordpress-persistent-storage
         persistentVolumeClaim:
@@ -140,3 +150,10 @@ spec:
             path: ".htaccess"
           - key: "uploads.ini"
             path: "uploads.ini"
+      # Should only be enabled in case stateless-sa-sec.yaml is used
+      - name: sa-volume
+        secret:
+          secretName: wp-stateless-media-secret
+          items:
+          - key: WP_STATELESS_MEDIA_JSON_KEY
+            path: key.json
