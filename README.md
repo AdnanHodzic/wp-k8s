@@ -71,6 +71,10 @@ If you found this project useful, show your support and appreciation by donating
 
 If wp-k8s helped you out and you find it useful, show your appreciation by donating (any amount) to the project!
 
+##### Become Github Sponsor
+
+[Become a sponsor to Adnan Hodzic on Github](https://github.com/sponsors/AdnanHodzic) to acknowledge my efforts and help project's further open source development.
+
 ##### PayPal
 [![paypal](https://www.paypalobjects.com/en_US/NL/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/donate?business=7AHCP5PU95S4Y&no_recurring=0&item_name=Purpose%3A+Contribution+for+work+on+wp-k8s&currency_code=EUR)
 
