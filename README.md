@@ -32,6 +32,7 @@ Contents of this file can be deployed by running: `kubectl apply -k ./`
 * [cluster-issuer-staging.yaml](https://github.com/AdnanHodzic/wp-k8s/blob/main/cluster-issuer-staging.yaml) Explaiend as part of [Step 6.5](https://foolcontrol.org/?p=3754)
 * [vpa.yaml](https://github.com/AdnanHodzic/wp-k8s/blob/main/vpa.yaml) – will create VPA whose function has been described in [wp-k8s: WordPress on Kubernetes project)](https://foolcontrol.org/?p=3754) section.
 * [hpa.yaml](https://github.com/AdnanHodzic/wp-k8s/blob/main/hpa.yaml) – will create HPA whose function has been described in [wp-k8s: WordPress on Kubernetes project](https://foolcontrol.org/?p=3754)
+* [stateless-sa-sec.yaml](https://github.com/AdnanHodzic/wp-k8s/blob/main/stateless-sa-sec.yaml) - Will create Kubernetes secret named `wp-stateless-media-secret` for use as part of [WP-Stateless (Google Cloud Storage) WordPress plugin](https://github.com/udx/wp-stateless). Make sure changes are made accordingly to [wordpress-deployment.yaml](https://github.com/AdnanHodzic/wp-k8s/blob/main/wordpress-deployment.yaml) file where `stateless-sa-sec.yaml` is referenced. Referenced as part of [Step 3.1](https://foolcontrol.org/?p=3754) & [Step 5](https://foolcontrol.org/?p=4004)
 
 ## HowTo Create MySQL Cluster using mysql-operator
 
