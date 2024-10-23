@@ -4,15 +4,20 @@ This repository consists of various Kubernetes deployments (see below for full i
 
 While wp-k8s project is compatible with any Kubernetes/cloud provider:
 
-For its private cloud implementation refer to: 
+#### For **wp-k8s private cloud** implementation refer to: 
 
 * [wp-k8s: WordPress on privately hosted Kubernetes cluster (Raspberry Pi 4 + Synology)](https://foolcontrol.org/?p=4004) or
 * [rpi-microk8s-bootstrap: Automate RPI device conversion into Kubernetes cluster nodes with Terraform](https://foolcontrol.org/?p=4555) blog post
 * [rpi-microk8s-bootstrap](https://github.com/AdnanHodzic/rpi-microk8s-bootstrap) Github project
 
-For its public cloud implementation on GKE refer to:
+#### For **wp-k8s public cloud** implementation on GKE refer to:
 
 * [wp-k8s: WordPress on Kubernetes (GKE, cloud SQL, NFS, cluster autoscaling, HPA, VPA, Ingress, Let's Encrypt)](http://foolcontrol.org/?p=3754) blog post
+
+#### For running **serverless WordPress with Cloud Run** refer to 
+
+* [wp-cloud-run: Ultimate WordPress setup on (GCP) Cloud Run](https://foolcontrol.org/?p=4802) blog post or its:
+* [wp-cloud-run 14 video Youtube playlist](https://www.youtube.com/playlist?list=PL83G0TLSeXREwjHDZPsV_34azAmniL81V).
 
 ## Brief overview:
 
